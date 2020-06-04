@@ -64,12 +64,8 @@ int main()
 
         for(int i=0; i <counters; ++i){
             pc.putc(MSV[i]);
-        }  
-        memset( &MSV[0], 0xFF, 100 );
-        counters=0;
-        
+        }
 
-        
         if(MSV[1]==0x20){
             led=1;
         }
@@ -77,31 +73,16 @@ int main()
         if(MSV[0]==0x41){
             led=0;
         }
-        // if(flag){
-        //     led=1;
-        // }
 
-        if (c == '1')
-        {
-            c = '\0';  // To avoid execution of this block until a '1' is received again.
-            led = 1;
-        }
-        
-        if (c == '01')
-        {
-            c = '\0';  // To avoid execution of this block until a '1' is received again.
-            led = 1;
-        }
- 
-        if (c == '0')
-        {
-            c = '\0';  // To avoid execution of this block until a '0' is received again.
-            led = 0;
-        }
- 
-        if (btn == 0)
-        {
-            pc.printf("b");
+        memset( &MSV[0], 0xFF, 100 );
+        counters=0;
+        //-----------------------------------------------------------------
+
+        if (btn == 0){
+            pc.putc('b');
         }
     }
 }
+
+//RawSerial use  pc.putc('b')
+//Serial use pc.printf("b")
